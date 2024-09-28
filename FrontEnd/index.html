@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 맵</title>
+</head>
+<body>
+    <img src="google.png" alt="구글이미지" usemap="#google">
+    <map name="google">
+        <area shape="" coords="">
+    </map>
+</body>
+</html>
+
+<br><br>
+// 태그 : 
+    1. 콘텐츠가 있는 태그 : <div><p><span> ex) <p>내용</p> : 요소
+    1. 콘텐츠가 없는 태그 : <br><img><meta> : 빈 태그
+// 속성 : 태그를 의미나 기능적으로 보조해주는 역할
+    <태그명 속성="속성값">
+
+// <!DOCTYPE html> : 가장 최신 버전의 html 
+// <html lang="ko"> : html 문서의 언어 정보 : ko=korea
+
+
+// 1. h1 태그는 한 번만 사용하기
+// 2. h(n) 태그는 h1 태그부터 순차적으로 사용해야함
+
+// <p>태그 : paragraph : 단락
+// <p>태그는 웹페이지의 가로 한 줄을 모두 사용하는 태그
+// 웹브라우저에서는 띄어쓰기를 아무리 많이 해서 출력해도 
+    1칸으로 인식
+// 많이 띄우고싶으면 &nbsp; &nbsp; 사용
+// 줄바꿈을 하고싶으면 <br> 태그
+
+// <a> = anchor : 링크 : 웹페이지에서 링크를 연결할 때 사용
+    <a> 태그 자체만으로는 기능 구현에 어려움이 있기 때문에
+    href 속성과 target 속성을 함께 사용
+    href : 클릭했을 때 이동시키고 싶은 요소의 id를 #과 사용
+         : 내.외부 링크를 받음
+    target : 외부 링크를 새 탭에서 열리게 하는 속성
+
+// <img> 태그는 src, alt를 무조건 같이 사용한다.
+    src : 소스, 즉 이미지의 위치 
+    alt : 어떤 이유로 이미지가 안 나올 때 대신 나오는 글
+
+// <strong> 태그는 "중요한" 텍스트에 사용
+    : 다른 텍스트들과 달리 굵기가 좀 더 굵게 출력
+// <em> 태그는 "강조할" 텍스트에 사용
+    : <em> 태그를 사용 시 감싸는 텍스트를 누워서 출력
+ - 이 둘은 중첩해서 사용 가능, em 2번이나 strong 2번도 사용 가능
+
+// <b> 태그 : 시각적으로 텍스트의 굵기를 굵게 출력
+    : 시각적으로는 <strong>과 같지만, 태그 의미적으로는
+      <strong>은 중요하다는 의미, <b>태그는 아무 의미 X
+
+// <i> 태그 : 시각적으로 텍스트를 누워서 출력
+    : 시각적으로는 <em>과 같지만, 태그 의미적으로는
+      <em>은 강조의 의미, <i>태그는 아무 의미 X
+
+// <ul>, <ol>, <dl> 태그 : 목록을 <p>로 표현하긴 적절 X
+   <ul> 태그 : unordered list : 비순서형 목록 태그 : 기호가 점 등으로 표현
+   <ol> 태그 : ordered list : 순서형 목록 태그 : 기호가 넘버링으로 표현
+       <li> 태그 : ul, ol 둘 다 list item를 이용해 목록 추가
+   <dl> 태그 : definition list : 정의형 목록 태그 : ex) 메뉴판
+        <dt> : definition title : 용어의 정의
+        <dd> : definition data : 용어의 설명
+
+// HTML에서 CSS를 사용할 수 있는 방법 3가지 
+    1. 내부 스타일 시트(Internal Style Sheet)
+        : HTML 코드 내부에 <style> 태그를 사용해 태그 
+          안에 CSS 코드를 쓰는 방법
+    2. 외부 스타일 시트(External Style Sheet)(linking style sheet)
+        : 확장자가 CSS로 끝나는 별도의 파일을 만들고,
+          그 파일과 HTML을 연결하여 사용하는 방법
+    3. 인라인 스타일(Inline style)
+        : 태그에 style 속성으로 CSS 코드를 작성하는 방법
+            글로벌 속성(GLOBAL) : 모든 태그에서 공통적으로
+                    사용할 수 있는 속성 : ex) style
+   
+
+// CSS의 기본 문법 : 선택자{속성:속성값;} = 선택자 + 선언부
+    선택자 : 스타일링하고 싶은 HTML 태그를 선택하는 영역
+    선언부 : 스타일링하고 싶은 속성과 값을 작성하는 영역
+            ex) p{color:blue;}
+        p태그 선택, 속성 : 텍스트 색상, 속성값 : 파란색
+
+// CSS에서 색상을 표현하는 방법 : 
+    1. keyword : h1{color:yellow}
+    2. R(ed)G(reen)B(lue) : rgb(0, 0, 255) : blue 255
+        - rgba{100, 100, 255, 10} : 0 : 알파값 : 투명도
+    3. HEX(16진수) : rrggbb형태 : h1{color:#0000ff}
+
+//  <font-size> 태그
+    CSS에서 사용하는 크기단위 : px, rem, em, vw, vh
+    1. px : 웹페이지의 가장 기본 크기 단위 - 해상도와 관련
+    2. rem : HTML의 태그의 폰트 크기의 배수에 해당하는 크기를 가지는 단위 : HTML 폰트 크기 바꾸면 다 바뀜
+    3. em : 부모 태그의 폰트 크기의 배수
+    4. vw : 웹 브라우저의 화면 가로 크기와 관련
+    5. vh : 웹 브라우저의 화면 가로 크기와 관련
+
+// 텍스트 관련 CSS 속성
+    font-size : 크기 단위 값;
+    color : 텍스트 색상;
+    font-family : [글꼴], [글꼴유형];
+        ex) 글꼴유형 : serif, snas-serif, cursive, fantasy, monospace
+    font-weight : 굵기 단위;
+    link-height : 텍스트 글자 높이를 변경 : 배수 단위 지정이 편함
+
+// CSS 파일도 나중에 작성한 것만 적용됨
+
+// shape속성 : 내가 생성할 링크의 모양 : rect, poly, circle 등
+   

@@ -1,0 +1,48 @@
+<!doctype html>                 // html의 버전을 정함.
+<html lang="en">                // html의 언어를 영어로 정함. -> 주언어 : 영어
+<head>                          // html의 형식 틀
+    <meta charset="UTF-8">      // 문자 인코딩 방식 - "유니코드" -> 한 문자를 사용할 때 1~4byte를 사용
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          // 메타 데이터의 이름을 viewport라 하고, width는 디바이스의 화면 사이즈에 맞게 크기를 조절하며, 
+          user-scalable은 사용자가 스케일을 조절할 수 있는지 여부를 지정하며 대부분 no를 지정하는데, 
+          이렇게 하면 input 필드에 텍스트를 입력할 경우 웹페이지가 스크롤되는 것을 막아줌. 초기배율 및 최대, 최소 비율을 기본값인 1.0으로 지정.
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">       // doctype과 함께 사용해야 유효한 명령어로 가장 최신 IE 브라우저를 선택하는 문서모드이다. 
+                                                                    -> 모든 IE 브라우저에 호환성 보기를 무시해준다.
+    <link rel="stylesheet" href="./styles.css">             // link: 연결, rel: 현재 문서와 링크된 문서 사이의 관계를 알려줌, href: 가져올 파일 경로 지정
+    <title>Form Validator</title>                           // 웹페이지의 제목. 브라우저의 탭에서 확인 가능 - 헤드 태그에 씀.
+</head>
+<body>
+    <div class="container">                                 // div: 레이아웃을 나누는 태그. 웹사이트의 전체적인 틀을 어떻게 만들지 구상을 담당.  
+                                                               class: 헤드의 스타일 정의에 따라 동일한 스타일이 지정됨. 여기선 헤드에 css가 연결돼있으므로 css파일에서 스타일을 찾아옴. css에서 .container를 찾아 연결
+        <form action="" id="form" class="form">             // form 태그: html 폼을 정의, 입력 영역 제작, action 속성: 폼이 제출될 때 데이터를 보낼 주소 지정, 빈 문자열은 현재 페이지로 보낸다는 의미. 
+                                                               id="form": form에 대한 고유 식별자 부여, JS나 CSS에서 폼에 접근 및 스타일 적용 가능. class: css파일의 .form에서 스타일을 가져옴
+            <h2>Register With Us</h2>
+            <div class="form-control">                      // css파일의 form-control에서 스타일을 가져옴.
+                <label for="username">Username</label>      // css파일의 form-control label에서 색, 해상도 등을 가져옴, for="username" id를 username으로 가진 입력 필드와 연결 - js
+                <input type="text" id="username" placeholder="Enter username">  // input태그로 입력 필드의 유형 지정, id는 username인 곳에, 
+                                                                                   placeholder: 입력 필드에 사용자가 입력할 내용을 안내하는 텍스트 제공, 사용자가 필드에 아직 입력하지 않았을 때에는 텍스트가 회색으로 표시, 입력하면 사라짐
+                <small>Error message</small>                // small: 텍스트를 작게 표시하는 데 사용
+            </div>
+            <div class="form-control">                  
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter email">
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Confirm Password</label>
+                <input type="password" id="password2" placeholder="Enter password again">
+                <small>Error message</small>
+            </div>
+            <button>Submit</button>             // 버튼 생성 html 요소
+        </form>                 // form태그 안의 여러 입력 필드와 사용자가 입력한 데이터를 수집하는 영역. form 태그 안의 맨 마지막 명령인 button 태그가 실행되면(Submit버튼을 클릭하면) 폼에 입력된 데이터가 지정된 URL(여기선 빈 문자열, 현재 페이지)로 전송됨.
+                                   + 입력 필드와 레이블을 그룹화하여 논리적 구조를 생성-> 사용자가 어떤 정보를 입력해야하는지 쉬운 이해 가능 + 폼 검증..?-> 입력 내용이 유효한지 검증, 오류 메시지 표시 구조 제공
+    </div>
+    <script src="script.js"></script>           // js코드 연결 태그
+</body>
+</html>

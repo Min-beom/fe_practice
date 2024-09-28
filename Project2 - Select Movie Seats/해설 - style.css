@@ -1,0 +1,134 @@
+@import url('http://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+                    /* import: css에서 다른 스타일시트를 불러오는 명령어, url을 통해 google fonts에 있는 폰트를 사용 가능 : Open Sans 폰트 사용*/
+
+* {
+    box-sizing: border-box;
+}                       /* *: 모든 html의 요소를 선택하는 선택자. html 문서 내 모든 요소에 스타일 적용, box-sizing: width + height */
+
+body {
+    background-color: #242333;      /* 페이지 배경 색 설정 */
+    color: #fff;                /* 글자 폰트 색*/
+    display: flex;                  /* display: inline, block, flex, grid */
+    flex-direction: column;         /* 해당 정렬 방향 */ 
+    justify-content: center;        /* 현 방향에 대한 정렬*/
+    align-items: center;            /* 반대방향에 대한 정렬*/
+    height: 100vh;              /* 높이 설정, body에서는 vh단위 사용*/
+    font-family: 'Lato', sans-serif;        /* 글꼴 설정, Lato가 없을 경우 sans-serif로 설정 */
+    margin: 0;              /* 페이지의 컨텐츠가 가장자리에 붙도록 여백을 0으로 설정 */
+}
+
+.movie-container {
+    margin: 20px 0;     /* margin: 1개: 4방향 모두, 2개: 상하, 좌우, 4개: 우, 상, 좌, 하 */
+}
+
+.movie-container h1 {
+    background: #1e1c28;
+    padding: 10px;
+}
+
+.movie-container select {
+    background: #fff;
+    border: 0;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 5px 15px;
+    appearance: none;       /* 브라우저의 기본 드롭다운 스타일 제거: 사용자 마음대로 커스터마이징 가능 */
+}
+
+.container {
+    perspective: 1000px;    /* 컨테이너의 형태를 3D 형태로 바꿔줌. 그림이 각도에 따라 다르게 보이듯이 바꿔줌. */
+    margin-bottom: 30px;
+}
+
+.seat {
+    background: #444451;    /* 좌석 색 */
+    height: 12px;       /* 좌석 높이 */
+    width: 15px;        /* 좌석 너비 */ 
+    margin: 3px;        /* 좌석 간의 간격 */
+    border-top-left-radius: 10px;       /* 요소의 왼쪽 위 모서리를 10px 반경으로 둥글게 설정 */
+    border-top-right-radius: 10px;      /* 요소의 오른쪽 위 모서리를 10px 반경으로 둥글게 설정 */
+}
+
+.seat.selected {
+    background: #6feaf6;
+}
+
+.seat.occupied {
+    background: #fff;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {        /* occupied 클래스를 포함하지 않는 seat 클래스, hover: 마우스가 요소 위에 있을 때 */
+    cursor: pointer;            /* 커서가 손가락 모양 커서로 변경 */
+    transform: scale(1.2);      /* 요소를 1.2배 확대. 즉, 마우스를 좌석에 갖다댈 경우 좌석이 1.2배 커짐.  */
+}
+
+.showcase .seat:not(.occupied):hover {      /* 이 클래스가 적용된 부모요소의 자식요소를 선택 */
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background: rgba(0,0,0,0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;      /* 기본 리스트 스타일 제거*/
+    display: flex;              /* 플렉스 박스 레이아웃 사용: flex, grid, inline, block 4가지가 있음*/
+    justify-content: space-between;     /* 자식 요소 간 공간을 균등하게 분배. */
+}
+
+.showcase li {      /* showcase 클래스 안에 있는 li 요소 */
+    display: flex;      /* li 요소를 플렉스 박스 컨테이너로 설정 */ 
+    align-items: center;        /* 플렉스 박스 안의 자식 요소들을 모두 수직으로 중앙으로 정렬 */
+    justify-content: center;    /* 수평으로 중앙 정렬 */ 
+    margin: 0 10px;     /* 상하 여백: 0, 좌우 여백: 10px */
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+.row {
+    display: flex;      /* 자식요소들이 기본값 row에 따라 수평으로 나란히 배치. 크기 유연하게 사용 가능. flex: 1; 하면 모든 플렉스 박스 내 아이템이
+                             동일한 비율로 공간을 나눔. justify-content: center을 사용하면 수평 정렬, align-items: center을 사용하면 수직 정렬 가능 */
+}
+
+.screen {
+    background: #fff;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);     /* X축을 기준으로 -45도 회전: 스크린 눕방 */
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+p.text {
+    margin: 5px 0;
+}
+
+p.text span {
+    color: #6feaf6;
+}
+
+.clear {
+    background: #777;
+    border: 2px solid #777;
+    border-radius: 5px;
+    width: 50px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;       /* 글자 두께를 600으로 설정 */
+}
+
+.clear:hover {
+    cursor: pointer;
+}

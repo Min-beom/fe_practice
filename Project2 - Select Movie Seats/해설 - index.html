@@ -1,0 +1,118 @@
+<!doctype html>     <!-- html의 버전을 정함 -->
+<html lang="en">    <!-- html의 언어를 정함 -> 영어 -->
+<head>          <!-- html의 기본 형식 틀 -->
+    <meta charset="UTF-8">      <!-- html의 문자 인코딩 방식 : '유니코드' -> 유니코드는 한 문자를 사용할 때 1~4byte를 사용한다. -->
+    <meta name="viewport"       
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+                    <!-- 메타 데이터의 이름을 viewport로 하고, 메타 데이터의 내용에서 화면 넓이는 기기에 맞도록 지정함. user-scalable를 no로 지정함으로써
+                        input 필드에 텍스트를 입력했을 때 웹페이지가 스크롤되는 것을 막아줌. 초기 배율, 최대 배율, 최소 배율을 1.0으로 설정해주어 화면 배율의 변화가 없도록 함. -->
+          <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- doctype과 함께 사용해야 유용한 명령어로 최신 ie 브라우저를 선택하는 명령어. ie = internet explorer -> 모든 ie 브라우저에 호환성 보기를 무시함. -->
+    <link rel="stylesheet" href="style.css">    <!-- rel: 현재 문서와 링크된 문서 사이의 관계 표시, href: 연결할 문서 파일 경로 지정 -->
+    <title>Movie Seat Booking</title>       <!-- 웹페이지 제목, 웹페이지 내에서는 확인이 불가하나 브라우저의 탭에서 확인 가능. 헤드 태그에 써야 유효. -->
+</head>
+<body>
+<h1>Movie Seat Booking</h1>     
+<div class="movie-container">           <!-- div: 레이아웃을 나누는 태그. ()와 같은 의미. class를 movie-container로 지정. 연결된 css 파일에서 .movie-container의 스타일을 가져옴. -->
+    <label for="movie">Pick a movie:</label>    <!-- label 태그는 개발자 입장에서 SM업무를 맡는 사람이 보기 편하게 레이아웃을 나누는 용도. for 요소를 통해 
+                                                    나눈 레이아웃 내에서도 id가 movie로 같은 select 태그를 가리킨다는 걸 표시. Pick a movie라는 텍스트는 덤.-->
+    <select id="movie">                         <!-- 드롭다운 목록 생성, id: 이 select 요소를 고유하게 식별하는데 사용, css나 js에서도 접근 가능 -->
+        <option value="8">Joker ($8)</option>   <!-- option: 드롭다운 목록에 포함되는 개별 항목 정의. value: 이 옵션이 선택될 때 전송되는 값 -->
+<!--        <option value="10">Avengers ($10)</option>-->
+<!--        <option value="12">Avatar ($12)</option>-->
+    </select>
+</div>
+
+<ul class="showcase">               <!-- ul: 비정렬 목록 태그. ul 요소 안의 항목 순서를 바꾸었을 때 의미가 바뀌지 않으면 사용하는 태그. 직계 자식 요소로 <li>가 있음
+                                            class: css나 js에서 이 요소를 조작하기 위한 이름. css에서 .showcase로 사용. -->
+    <li>                <!-- 목록 태그. 하나의 좌석 상태를 나타냄. 세 개의 목록, 각각 다른 상태. -->
+        <div class="seat"></div>    <!-- seat 상태일 경우. class를 seat로 정의하여 css에서 색이나 다른 요소들을 다르게 했을 것. -->
+        <small>N/A</small>          <!-- 작게 N/A 텍스트 출력. 사용 불가함을 명시. -->
+    </li>
+    <li>
+        <div class="seat selected"></div>   <!-- seat selected 상태일 경우. class를 seat selected로 정의하여 css에서 색이나 다른 요소들을 다르게 했을 것.-->
+        <small>Selected</small>     <!-- 작게 Selected 텍스트 출력. 사용 가능한 좌석임을 명시. -->
+    </li>
+    <li>
+        <div class="seat occupied"></div>   <!-- seat occupied 상태일 경우. class를 seat occupied로 정의하여 css에서 색이나 다른 요소들을 다르게 했을 것. -->
+        <small>Occupied</small>     <!-- 작게 Selected 텍스트 출력. 해당 좌석을 이미 사용중(선택한 상태)임을 명시. -->
+    </li>
+</ul>
+
+<div class="container">             <!-- class를 container로 설정. css에서 .container 선택자로 언급. 아마 보통 컨테이너 클래스는 한 문단 모으기용도로 만들고 시작하는 경우가 많은듯. -->
+    <div class="screen"></div>      <!-- class를 screen으로 설정. css에서 .screen 선택자로 언급 -->
+
+    <div class="row">               <!-- row class를 지정하여 한 줄을 정의함. -->
+        <div class="seat"></div>
+        <div class="seat"></div>    <!-- 한 줄당 8개의 좌석 배치. -->
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+    </div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+    </div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+    </div>
+    <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+    </div>
+</div>
+
+<p class="text">You have selected <span id="count">0</span> seats for a price of    <!-- p: paragraph class이름: text -->
+$<span id="total">0</span></p>          <!-- span 태그는 별 의미가 없음. css의 선택자 사용 용도, js의 특정 부분 조작 용도, html 속성 적용 범위 지정 용도, 시각적 장식 용도로 사용됨. -->
+                                        <!-- span id="count": 선택된 좌석의 수, 초기값=0, js를 통해 선택된 좌석 수에 따라 업데이트
+                                             span id="total": 총 가격, 초기값=0, js를 통해 선택된 좌석 수에 따라 업데이트 -->
+<button id="clearBtn" class="clear">clear</button>
+                                        <!-- clear이라는 텍스트가 표시되는 버튼. id=clearBtn은 js에서 버튼을 쉽게 참조할 수 있도록 도움 -->
+
+
+<script src="script.js"></script>               <!-- class와 id는 css와 js 모두에서 사용될 수 있지만, 
+                                                    class는 여러 요소에 스타일 적용 가능, js에서도 여러 요소를 선택가능하다는 점
+                                                    id는 고유한요소에 스타일 적용, js에서도 특정 요소를 쉽게 선택 가능하다는 점이 차이점이다. -->
+</body>
+</html>
